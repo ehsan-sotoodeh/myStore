@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "84f0af9f-8968-44d8-ba81-1e2dba213532",
+		"name": "Client CRUD ",
+		"description": "test project for client CRUD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Hello World",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						""
+					]
+				},
+				"description": "This page give a brief description of api"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllClients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/client",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"client"
+					]
+				},
+				"description": "This page give a brief description of api"
+			},
+			"response": []
+		},
+		{
+			"name": "getClientById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/client/5f14de4956143c306053b7b7",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"client",
+						"5f14de4956143c306053b7b7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addNewClient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Ehsan",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Sotoodeh",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "8508 south pole ave",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "+1 (306) 914-4814",
+							"type": "text"
+						},
+						{
+							"key": "lawerLicenseId",
+							"value": "LWID0055698",
+							"type": "text"
+						},
+						{
+							"key": "lawerName",
+							"value": "Nikola",
+							"type": "text"
+						},
+						{
+							"key": "lawerLastName",
+							"value": "Tesla",
+							"type": "text"
+						},
+						{
+							"key": "notes",
+							"value": "Great job!!!",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/client/",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateClient",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "firstName",
+							"value": "Ehsan0",
+							"type": "text"
+						},
+						{
+							"key": "lastName",
+							"value": "Sotoodeh",
+							"type": "text"
+						},
+						{
+							"key": "address",
+							"value": "8508 Southpole ave",
+							"type": "text"
+						},
+						{
+							"key": "phoneNumber",
+							"value": "+1 (306) 914-4814",
+							"type": "text"
+						},
+						{
+							"key": "lawerLicenseId",
+							"value": "LWID0055600",
+							"type": "text"
+						},
+						{
+							"key": "lawerName",
+							"value": "Thomas",
+							"type": "text"
+						},
+						{
+							"key": "lawerLastName",
+							"value": "Edison",
+							"type": "text"
+						},
+						{
+							"key": "notes",
+							"value": "Great job...",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/client/5f14de064016cb51ec08f656",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"client",
+						"5f14de064016cb51ec08f656"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteClient",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/client/5f14de064016cb51ec08f656",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"client",
+						"5f14de064016cb51ec08f656"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

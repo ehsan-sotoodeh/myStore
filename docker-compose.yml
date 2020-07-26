@@ -1,0 +1,14 @@
+version: "3"
+services: 
+    app:
+        container_name: client_rest_api
+        build: .
+        ports: 
+            - "3000:3000"
+        links: 
+            - db
+    db:
+        container_name: mongo
+        image: mongo
+        ports: 
+            - "27017:27017"
