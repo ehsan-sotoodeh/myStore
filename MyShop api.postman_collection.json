@@ -379,6 +379,222 @@
 			"protocolProfileBehavior": {}
 		},
 		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "getAllOrders",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/order",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order"
+							]
+						},
+						"description": "This page give a brief description of api"
+					},
+					"response": []
+				},
+				{
+					"name": "getOrderById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/api/order/5f20e60446e87148c884f0e3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"5f20e60446e87148c884f0e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewOrder",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_id",
+									"value": "5f1dfa154672ee5a389a4c80",
+									"type": "text"
+								},
+								{
+									"key": "customer_id",
+									"value": "5f1dcafeaa7d2c93ac535895",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "9909 Hathaway street Vancouver BC",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "make",
+									"value": "Red",
+									"type": "text"
+								},
+								{
+									"key": "payment_details",
+									"value": "{'card':'202020202020', 'ccv':'87687', 'exp':'20160813'}",
+									"type": "text"
+								},
+								{
+									"key": "payment_status",
+									"value": "paied",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/order/",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateOrder",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "product_id",
+									"value": "5f1dfa154672ee5a389a4c80",
+									"type": "text"
+								},
+								{
+									"key": "customer_id",
+									"value": "5f1dcafeaa7d2c93ac535895",
+									"type": "text"
+								},
+								{
+									"key": "address",
+									"value": "9909 Hathaway street Vancouver BC",
+									"type": "text"
+								},
+								{
+									"key": "quantity",
+									"value": "5",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "200000",
+									"type": "text"
+								},
+								{
+									"key": "make",
+									"value": "Red",
+									"type": "text"
+								},
+								{
+									"key": "payment_details",
+									"value": "{'card':'202020202020', 'ccv':'87687', 'exp':'20160813'}",
+									"type": "text"
+								},
+								{
+									"key": "payment_status",
+									"value": "paied",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/order/5f20e60446e87148c884f0e3",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"5f20e60446e87148c884f0e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteOrder",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/api/order/5f20e80bec9bcb2874eae2c9",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"order",
+								"5f20e80bec9bcb2874eae2c9"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "user endpoint",
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Categories",
 			"item": [
 				{

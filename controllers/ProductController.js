@@ -19,15 +19,6 @@ function ProductData(data) {
   this.dateAdded = data.dateAdded;
 }
 
-// name: { type: String, required: true },
-// description: { type: String, required: true },
-// category_id: { type: ObjectId, required: false },
-// makes: { type: Array, required: false },
-// quantity: { type: Number, required: false },
-// images: { type: Array, required: false },
-// comments: { type: Array, required: false },
-// dateAdded: { type: Date, required: true },
-
 exports.productDetails = [
   (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -68,15 +59,6 @@ exports.productList = [
     }
   },
 ];
-
-// name: { type: String, required: true },
-// description: { type: String, required: true },
-// category_id: { type: ObjectId, required: false },
-// makes: { type: Array, required: false },
-// quantity: { type: Number, required: false },
-// images: { type: Array, required: false },
-// comments: { type: Array, required: false },
-// dateAdded: { type: Date, required: true },
 
 exports.productStore = [
   body("name", "Name must not be empty").isLength({ min: 5 }).escape(),
@@ -124,16 +106,6 @@ exports.productStore = [
     }
   },
 ];
-
-// name: { type: String, required: true },
-// description: { type: String, required: true },
-// category_id: { type: ObjectId, required: false },
-// makes: { type: Array, required: false },
-// quantity: { type: Number, required: false },
-// images: { type: Array, required: false },
-// comments: { type: Array, required: false },
-// dateAdded: { type: Date, required: true },
-
 
 exports.productUpdate = [
   body("name", "First name must not be empty").isLength({ min: 5 }).escape(),
