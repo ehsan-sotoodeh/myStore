@@ -23,19 +23,6 @@ function OrderData(data) {
   this.delivary_date = data.delivary_date;
 }
 
-// product_id: { type: mongoose.Types.ObjectId, required: false },
-// customer_id: { type: mongoose.Types.ObjectId, required: false },
-// address: { type: String, required: true },
-// quantity: { type: Number, required: true },
-// price: { type: Number, required: true },
-// make: { type: Number, required: true },
-// payment_details: { type: Mixed, required: true },
-// payment_status: { type: String, required: true },
-// delivary_status: { type: String, required: true },
-// tracking_code: { type: String, required: false },
-// order_date: { type: Date, required: true },
-// delivary_date: { type: Date, required: false },
-
 exports.orderDetails = [
   (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -63,15 +50,32 @@ exports.orderDetails = [
 
 exports.orderList = [
   (req, res) => {
+    const sort = req.query.sort || "";
+    let searchObj = {};
+    if (req.query.filterBy) {
+      searchObj = {
+        $or: [
+          { payment_status: { $regex: `.*${req.query.filterBy}.*` } },
+          { tracking_code: { $regex: `.*${req.query.filterBy}.*` } },
+        ],
+      };
+    }
+    var page = parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
+
     try {
-      Order.find({}).then((orders) => {
-        orders = orders.length ? orders : [];
-        return apiResponse.successResponseWithData(
-          res,
-          "Operation success",
-          orders
-        );
-      });
+      Order.find(searchObj)
+        .sort(sort)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .then((orders) => {
+          orders = orders.length ? orders : [];
+          return apiResponse.successResponseWithData(
+            res,
+            "Operation success",
+            orders
+          );
+        });
     } catch (error) {
       return apiResponse.errorResponse(res, error);
     }

@@ -19,6 +19,13 @@ function ProductData(data) {
   this.dateAdded = data.dateAdded;
 }
 
+//TODO
+// find by name
+// find by category_id
+// sort by
+// add images
+
+
 exports.productDetails = [
   (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
