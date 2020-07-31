@@ -41,15 +41,41 @@ exports.categoryDetails = [
 
 exports.categoryList = [
   (req, res) => {
+    const sort = req.query.sort || "";
+    let searchObj = {};
+    if (req.query.filterBy) {
+      searchObj = {
+        $or: [
+          {
+            description: {
+              $regex: `.*${req.query.filterBy}.*`,
+              $options: "i",
+            },
+          },
+          {
+            name: {
+              $regex: `.*${req.query.filterBy}.*`,
+              $options: "i",
+            },
+          },
+        ],
+      };
+    }
+    var page = parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
     try {
-      Category.find({}).then((categories) => {
-        categories = categories.length ? categories : [];
-        return apiResponse.successResponseWithData(
-          res,
-          "Operation success",
-          categories
-        );
-      });
+      Category.find(searchObj)
+        .sort(sort)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .then((categories) => {
+          categories = categories.length ? categories : [];
+          return apiResponse.successResponseWithData(
+            res,
+            "Operation success",
+            categories
+          );
+        });
     } catch (error) {
       return apiResponse.errorResponse(res, error);
     }

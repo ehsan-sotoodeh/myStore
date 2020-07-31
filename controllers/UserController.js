@@ -45,15 +45,33 @@ exports.userDetails = [
 
 exports.userList = [
   (req, res) => {
+    const sort = req.query.sort || "";
+    let searchObj = {};
+    if (req.query.filterBy) {
+      searchObj = {
+        $or: [
+          { firstName: { $regex: `.*${req.query.filterBy}.*`, $options: "i" } },
+          { lastName: { $regex: `.*${req.query.filterBy}.*`, $options: "i" } },
+          { email: { $regex: `.*${req.query.filterBy}.*`, $options: "i" } },
+        ],
+      };
+    }
+    var page = parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
+
     try {
-      User.find({}).then((users) => {
-        users = users.length ? users : [];
-        return apiResponse.successResponseWithData(
-          res,
-          "Operation success",
-          users
-        );
-      });
+      User.find(searchObj)
+        .sort(sort)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .then((users) => {
+          users = users.length ? users : [];
+          return apiResponse.successResponseWithData(
+            res,
+            "Operation success",
+            users
+          );
+        });
     } catch (error) {
       return apiResponse.errorResponse(res, error);
     }

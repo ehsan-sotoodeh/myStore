@@ -25,7 +25,6 @@ function ProductData(data) {
 // sort by
 // add images
 
-
 exports.productDetails = [
   (req, res) => {
     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -52,15 +51,34 @@ exports.productDetails = [
 
 exports.productList = [
   (req, res) => {
+    const sort = req.query.sort || "";
+    let searchObj = {};
+    if (req.query.filterBy) {
+      searchObj = {
+        $or: [
+          { name: { $regex: `.*${req.query.filterBy}.*`, $options: "i" } },
+          {
+            description: { $regex: `.*${req.query.filterBy}.*`, $options: "i" },
+          },
+        ],
+      };
+    }
+    var page = parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
+
     try {
-      Product.find({}).then((products) => {
-        products = products.length ? products : [];
-        return apiResponse.successResponseWithData(
-          res,
-          "Operation success",
-          products
-        );
-      });
+      Product.find(searchObj)
+        .sort(sort)
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .then((products) => {
+          products = products.length ? products : [];
+          return apiResponse.successResponseWithData(
+            res,
+            "Operation success",
+            products
+          );
+        });
     } catch (error) {
       return apiResponse.errorResponse(res, error);
     }

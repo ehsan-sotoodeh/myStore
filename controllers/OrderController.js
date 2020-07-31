@@ -55,8 +55,18 @@ exports.orderList = [
     if (req.query.filterBy) {
       searchObj = {
         $or: [
-          { payment_status: { $regex: `.*${req.query.filterBy}.*` } },
-          { tracking_code: { $regex: `.*${req.query.filterBy}.*` } },
+          {
+            payment_status: {
+              $regex: `.*${req.query.filterBy}.*`,
+              $options: "i",
+            },
+          },
+          {
+            tracking_code: {
+              $regex: `.*${req.query.filterBy}.*`,
+              $options: "i",
+            },
+          },
         ],
       };
     }
