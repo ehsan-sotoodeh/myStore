@@ -12,6 +12,16 @@
 				{
 					"name": "getAllUsers",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -23,6 +33,23 @@
 							"path": [
 								"api",
 								"user"
+							],
+							"query": [
+								{
+									"key": "filterBy",
+									"value": "somEthing",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "5",
+									"disabled": true
+								}
 							]
 						},
 						"description": "This page give a brief description of api"
@@ -32,6 +59,16 @@
 				{
 					"name": "getUserById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -52,6 +89,16 @@
 				{
 					"name": "addNewUser",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -107,6 +154,16 @@
 				{
 					"name": "updateUser",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -162,6 +219,16 @@
 				{
 					"name": "deleteUser",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -174,7 +241,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/api/user/5f1dc94eeb99199498349a9a",
+							"raw": "localhost:3000/api/user/5f26274211320315ec16dc0c",
 							"host": [
 								"localhost"
 							],
@@ -182,7 +249,7 @@
 							"path": [
 								"api",
 								"user",
-								"5f1dc94eeb99199498349a9a"
+								"5f26274211320315ec16dc0c"
 							]
 						}
 					},
@@ -198,10 +265,20 @@
 				{
 					"name": "getAllProducts",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/product",
+							"raw": "localhost:3000/api/product?page=2&limit=3",
 							"host": [
 								"localhost"
 							],
@@ -209,6 +286,21 @@
 							"path": [
 								"api",
 								"product"
+							],
+							"query": [
+								{
+									"key": "filterBy",
+									"value": "werte",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "3"
+								}
 							]
 						},
 						"description": "This page give a brief description of api"
@@ -218,6 +310,16 @@
 				{
 					"name": "getProductById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -238,6 +340,16 @@
 				{
 					"name": "addNewProduct",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -293,6 +405,16 @@
 				{
 					"name": "updateProduct",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -348,6 +470,16 @@
 				{
 					"name": "deleteProduct",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -384,10 +516,20 @@
 				{
 					"name": "getAllOrders",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3000/api/order",
+							"raw": "localhost:3000/api/order?sort=-order_date&page=1&limit=5",
 							"host": [
 								"localhost"
 							],
@@ -395,6 +537,25 @@
 							"path": [
 								"api",
 								"order"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-order_date"
+								},
+								{
+									"key": "filterBy",
+									"value": "uwp",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "5"
+								}
 							]
 						},
 						"description": "This page give a brief description of api"
@@ -404,6 +565,16 @@
 				{
 					"name": "getOrderById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -424,6 +595,16 @@
 				{
 					"name": "addNewOrder",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -446,12 +627,12 @@
 								},
 								{
 									"key": "quantity",
-									"value": "5",
+									"value": "10",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "200",
+									"value": "100",
 									"type": "text"
 								},
 								{
@@ -466,7 +647,7 @@
 								},
 								{
 									"key": "payment_status",
-									"value": "paied",
+									"value": "notPaied",
 									"type": "text"
 								}
 							],
@@ -494,6 +675,16 @@
 				{
 					"name": "updateOrder",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -564,6 +755,16 @@
 				{
 					"name": "deleteOrder",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -600,6 +801,16 @@
 				{
 					"name": "getAllCategories",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -620,6 +831,16 @@
 				{
 					"name": "getCategoryById",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -640,6 +861,16 @@
 				{
 					"name": "addNewCategory",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -685,6 +916,16 @@
 				{
 					"name": "updateCategory",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "PUT",
 						"header": [],
 						"body": {
@@ -730,6 +971,16 @@
 				{
 					"name": "deleteCategory",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{auth_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "DELETE",
 						"header": [],
 						"body": {
@@ -758,6 +1009,94 @@
 				}
 			],
 			"description": "user endpoint",
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "Signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ehsan.s1100@Mymail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "firstName",
+									"value": "Ehsan000",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Sotoodeh000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/auth/signup",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							]
+						},
+						"description": "This page give a brief description of api"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "ehsan.set1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:3000/api/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						},
+						"description": "This page give a brief description of api"
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{

@@ -38,6 +38,13 @@ exports.validationErrorWithData = (res, msg, inputData) => {
   };
   return res.status(400).json(data);
 };
+exports.validationError = (res, msg) => {
+  const data = {
+    status: 0,
+    message: msg,
+  };
+  return res.status(400).json(data);
+};
 
 exports.unauthorizedResponse = (res, msg) => {
   const data = {
